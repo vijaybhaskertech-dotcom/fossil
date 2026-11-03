@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Fossil E-Commerce Automation Test Suite" verbose="2" parallel="classes" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.fossil.utils.TestListener"/>
+    </listeners>
+
+    <test name="Fossil India Functional & E2E Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.fossil.tests.FossilEndToEndTest"/>
+            <class name="com.fossil.tests.FossilLoginTest"/>
+            <class name="com.fossil.tests.FossilSearchProductTest"/>
+        </classes>
+    </test>
+
+</suite>
+
