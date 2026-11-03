@@ -91,3 +91,24 @@ Every single Acceptance Criteria and Test Case is mapped directly to our automat
 - **TC_442_04 & TC_442_05** ➔ `FossilSearchProductTest.java` (`testSearchFunctionality`, `testNavigateToProductDetails`)
 - **TC_442_06, 07, 08, 09** ➔ `FossilEndToEndTest.java` (`testCompleteECommerceProductPurchaseFlow`)
 
+---
+
+## 🐛 4. Linked Defect / Bug Report
+
+### **[BUG-442-01]: No Action Occurs When User Clicks 'Remove' Button in Shopping Bag**
+- **Parent User Story:** [User Story 442](https://dev.azure.com/vijay0424/AIDHIKA/_workitems/edit/442)
+- **Work Item Type:** Bug
+- **Severity:** 2 - High
+- **Priority:** 1 - High
+- **State:** Active / New
+- **Steps to Reproduce:**
+  1. Navigate to `https://www.fossil.in/`
+  2. Search and add any watch to the Shopping Bag
+  3. Navigate to `/cart`
+  4. Click the "Remove" button on the line item
+- **Expected Result:** Item is removed from the cart, line-item count decrements, order total recalculates.
+- **Actual Result:** No action occurs upon clicking "Remove". Product remains in cart and pricing totals do not update.
+- **Evidence Attached:** [`docs/evidence/BUG_442_Cart_Remove_Button_No_Action.webm`](file:///c:/Users/Admin/Desktop/Fossil_Ecommerce_Automation/docs/evidence/BUG_442_Cart_Remove_Button_No_Action.webm)
+- **Automated Regression Test:** `FossilEndToEndTest.testCartItemRemoveDefectVerification()`
+
+

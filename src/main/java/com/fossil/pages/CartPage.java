@@ -37,6 +37,12 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//h1[contains(text(), 'Bag') or contains(text(), 'Cart') or contains(@class, 'cart-header')]")
     private WebElement cartHeader;
 
+    @FindBy(xpath = "//button[contains(@class, 'remove-btn') or contains(@class, 'remove-product') or contains(@class, 'line-item-action-remove') or contains(@aria-label, 'Remove') or contains(text(), 'Remove')] | //a[contains(@class, 'remove-btn') or contains(@class, 'remove-product') or contains(text(), 'Remove')]")
+    private WebElement removeItemButton;
+
+    @FindBy(xpath = "//div[contains(@class, 'empty-cart') or contains(@class, 'cart-empty') or contains(text(), 'Your bag is empty') or contains(text(), 'Shopping Bag is Empty')]")
+    private WebElement emptyCartMessage;
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -98,6 +104,40 @@ public class CartPage extends BasePage {
 
     public boolean isCheckoutButtonEnabled() {
         return waitForVisibility(checkoutButton).isEnabled();
+    }
+
+    /**
+     * Checks if the Remove Item button is present on the cart page.
+     */
+    public boolean isRemoveButtonPresent() {
+        try {
+            return removeItemButton.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Attempts to click the Remove Item button.
+     * Note: Mapped to Defect BUG-442-01 where no action occurs upon clicking.
+     */
+    public void clickRemoveItem() {
+        waitForElementToBeClickable(removeItemButton);
+        clickElement(removeItemButton);
+    }
+
+    /**
+     * Verifies if the shopping bag is empty following an item removal.
+     */
+    public boolean isCartEmpty() {
+        try {
+            if (emptyCartMessage.isDisplayed() || getCartItemCount() == 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            return getCartItemCount() == 0;
+        }
+        return false;
     }
 }
 

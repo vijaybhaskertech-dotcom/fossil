@@ -25,6 +25,12 @@ Fossil_Ecommerce_Automation/
 ├── pom.xml                               # Maven project dependencies & plugins
 ├── testng.xml                            # TestNG execution suite with listeners
 ├── README.md                             # Project documentation
+├── AZURE_DEVOPS_BUG_REPORT.md            # Comprehensive Bug Report for US-442
+├── AZURE_DEVOPS_USER_STORY_AND_TEST_CASES.md # User Story #442 & 10 Test Cases
+├── AZURE_DEVOPS_TEST_CASES.csv           # Azure DevOps bulk-import CSV (Story + Tests + Bug)
+├── docs/
+│   └── evidence/
+│       └── BUG_442_Cart_Remove_Button_No_Action.webm # Bug video screen recording proof
 ├── src/
 │   ├── main/
 │   │   └── java/com/fossil/
@@ -88,4 +94,17 @@ After test execution, the interactive HTML Extent Report is automatically genera
 test-output/ExtentReport.html
 ```
 Open this file in Google Chrome or any browser to view test status, step logs, execution timelines, and failure screenshots.
+
+---
+
+## 🐛 Defect Tracking & Bug Report
+
+* **Azure DevOps User Story:** [User Story 442 (AIDHIKA)](https://dev.azure.com/vijay0424/AIDHIKA/_workitems/edit/442)
+* **Defect ID:** `[BUG-442-01]`
+* **Title:** No action occurs when clicking 'Remove' button on product in Shopping Bag / Cart
+* **Severity / Priority:** High (P1)
+* **Detailed Documentation:** [`AZURE_DEVOPS_BUG_REPORT.md`](AZURE_DEVOPS_BUG_REPORT.md)
+* **Attached Video Evidence:** [`docs/evidence/BUG_442_Cart_Remove_Button_No_Action.webm`](docs/evidence/BUG_442_Cart_Remove_Button_No_Action.webm)
+* **Automated Defect Verification:** Covered in `FossilEndToEndTest.testCartItemRemoveDefectVerification()`
+
 

@@ -88,5 +88,29 @@ public class FossilEndToEndTest extends BaseTest {
         // Consolidate all soft assertion validations
         softAssert.assertAll();
     }
+
+    @Test(priority = 2, description = "Defect Verification [BUG-442-01]: Verify Remove Button action on Shopping Bag item")
+    public void testCartItemRemoveDefectVerification() {
+        HomePage homePage = new HomePage(getDriver());
+        String searchKeyword = ConfigReader.getProperty("searchKeyword");
+        ProductListingPage plp = homePage.searchFor(searchKeyword);
+        ProductDetailsPage pdp = plp.selectFirstProduct();
+        pdp.clickAddToCart();
+        CartPage cartPage = pdp.proceedToCart();
+
+        int initialCount = cartPage.getCartItemCount();
+        Assert.assertTrue(initialCount >= 1, "Cart should have at least 1 item before testing removal!");
+
+        Assert.assertTrue(cartPage.isRemoveButtonPresent(), "Remove button should be visible on cart line item!");
+        cartPage.clickRemoveItem();
+
+        // Check if item is removed or if no action occurred (Defect BUG-442-01)
+        int updatedCount = cartPage.getCartItemCount();
+        System.out.println("Defect Check [BUG-442-01] -> Initial Count: " + initialCount + ", Post-Remove Click Count: " + updatedCount);
+
+        // Assertion: Validates expected behavior vs actual defective behavior
+        Assert.assertTrue(cartPage.isCartEmpty() || updatedCount < initialCount,
+            "[DEFECT REPRODUCED - BUG-442-01]: Clicking 'Remove' button did not remove item or decrement cart count! Refer to docs/evidence/BUG_442_Cart_Remove_Button_No_Action.webm");
+    }
 }
 
