@@ -90,3 +90,4 @@ Every single Acceptance Criteria and Test Case is mapped directly to our automat
 - **TC_442_02 & TC_442_03** ➔ `FossilLoginTest.java` (`testLoginPageDisplay`, `testInvalidLoginCredentials`)
 - **TC_442_04 & TC_442_05** ➔ `FossilSearchProductTest.java` (`testSearchFunctionality`, `testNavigateToProductDetails`)
 - **TC_442_06, 07, 08, 09** ➔ `FossilEndToEndTest.java` (`testCompleteECommerceProductPurchaseFlow`)
+

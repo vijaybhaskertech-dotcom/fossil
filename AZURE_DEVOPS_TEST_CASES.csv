@@ -10,3 +10,4 @@ ID,Work Item Type,Title,State,Priority,Area Path,Description,Step Action,Step Ex
 ,Test Case,TC_442_08: Verify Shopping Bag page item count accuracy,Design,1,AIDHIKA,Verify cart item count,1. Click Shopping Bag icon 2. Verify line items count,Cart lists at least 1 item matching added product
 ,Test Case,TC_442_09: Verify Order Summary pricing formula in Shopping Bag,Design,1,AIDHIKA,Verify Subtotal + Shipping + Tax == Grand Total,1. Extract Subtotal Shipping Tax and Grand Total 2. Compute sum,Subtotal + Shipping + Tax matches Grand Total
 ,Test Case,TC_442_10: Negative: Verify Search with non-existent keyword,Design,3,AIDHIKA,Negative search validation,1. Enter 'xyz999nonsenseabc' 2. Submit,Displays zero products with No results found message
+
