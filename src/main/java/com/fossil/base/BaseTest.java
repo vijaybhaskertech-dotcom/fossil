@@ -3,6 +3,7 @@ package com.fossil.base;
 import com.fossil.utils.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -49,6 +50,7 @@ public class BaseTest {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 if (isHeadless) {
                     firefoxOptions.addArguments("-headless");
                 }
@@ -58,6 +60,7 @@ public class BaseTest {
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 if (isHeadless) {
                     edgeOptions.addArguments("--headless=new");
                 }
@@ -68,6 +71,7 @@ public class BaseTest {
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
                 // Point to user-level Chrome binary if running on Windows
                 File userChrome = new File(System.getProperty("user.home") + "\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
