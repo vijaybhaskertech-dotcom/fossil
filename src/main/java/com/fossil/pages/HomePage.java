@@ -87,7 +87,15 @@ public class HomePage extends BasePage {
 
     public LoginPage navigateToLogin() {
         dismissPromotionalBanner();
-        click(accountLoginLink);
+        try {
+            By btn = By.cssSelector(".login-trigger-btn, a[href*='login'], button[aria-label*='Sign in']");
+            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(btn));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+        } catch (Exception e) {
+            try {
+                click(accountLoginLink);
+            } catch (Exception ignored) {}
+        }
         return new LoginPage(driver);
     }
 

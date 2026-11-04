@@ -6,7 +6,7 @@
         <listener class-name="com.fossil.utils.TestListener"/>
     </listeners>
 
-    <test name="Fossil India Functional & E2E Tests">
+    <test name="Fossil India Functional &amp; E2E Tests">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.fossil.tests.FossilEndToEndTest"/>

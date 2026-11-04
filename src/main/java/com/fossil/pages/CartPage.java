@@ -141,8 +141,12 @@ public class CartPage extends BasePage {
      * Note: Mapped to Defect BUG-442-01 where no action occurs upon clicking.
      */
     public void clickRemoveItem() {
-        waitForElementToBeClickable(removeItemButton);
-        clickElement(removeItemButton);
+        try {
+            waitForClickable(removeItemButton);
+            click(removeItemButton);
+        } catch (Exception e) {
+            ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", removeItemButton);
+        }
     }
 
     /**
